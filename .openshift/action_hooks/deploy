@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo deploying...
+ln -s "`pwd`/app-root/repo/build/debug" "`pwd`/app-root/repo/public"
+ln -s "`pwd`/app-root/repo/.openshift/action_hooks/nginx.conf.erb" "`pwd`/app-root/repo/"

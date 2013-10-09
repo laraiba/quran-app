@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export PATH="`pwd`/app-root/data/nodejs/bin":$PATH
+
+echo changing active directory to "`pwd`/app-root/repo"
+cd "`pwd`/app-root/repo"
+
+echo building...
+ln -s "`pwd`/../data/node_modules" "`pwd`/node_modules"
+./node_modules/grunt-cli/bin/grunt
