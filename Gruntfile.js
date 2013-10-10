@@ -33,7 +33,7 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'src/**/*.js', 'tests/**/*.js']
+            all: ['Gruntfile.js', 'src/**/laraiba*.js', 'tests/**/*.js']
         }
     });
 

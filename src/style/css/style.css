@@ -16,6 +16,29 @@ html, body {
     font-size: 18px;
 }
 
+a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 130%;
+}
+
+h3 {
+    font-size: 110%;
+}
+
 .clear {
     clear: both;
 }
@@ -66,10 +89,23 @@ html, body {
     margin-right: 2em;
 }
 
+.btn {
+    padding: 0.5em 1em;
+    display: inline-block;
+    border: 1px solid #DDD;
+    background: #EEE;
+    color: #222;
+    border-radius: 4px;
+    line-height: 1;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
 .navbar .btn {
-    padding: 0 0.5em;
+    padding: 0.25em 0.5em;
     border: 1px solid #575;
     display: inline-block;
+    background-color: transparent;
+    line-height: 1;
 }
 
 .navbar #main-menu-btn {
@@ -78,15 +114,53 @@ html, body {
 
 .content {
     margin: 1em;
-    padding-top: 3em;
+    padding: 3em 0 1em;
     color: #373322;
-    text-shadow: 1px 0 0 rgba(0, 0, 0, 0.03);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.sura-header {
+    margin-bottom: 0.5em;
+    border-bottom: 1px dotted #757677;
+}
+
+.sura-header h2, .sura-header h3 {
+    text-align: center;
+}
+
+.sura-header .sura-ename {
+    font-weight: normal;
+}
+
+.sura-header p {
+    padding: 1.5em 0.5em 1em;
+    color: #555856;
+    font-size: 90%;
+}
+
+.sura-header p span {
+    display: inline-block;
+    width: 48%;
+}
+
+.sura-header .sura-ayas {
+    float: left;
+}
+
+.sura-header .sura-order {
+    float: right;
+    text-align: right;
 }
 
 .quran .verse {
     clear: both;
     border-bottom: 1px solid #E5EEDB;
     padding: 0.5em 0;
+}
+
+.quran .verse.active {
+    color: #162;
+    text-shadow: 0 1px 0 rgba(10, 255, 20, 0.2), 1px 0 0 rgba(25, 10, 0, 0.1);
 }
 
 .quran .arabic-text {
@@ -107,11 +181,94 @@ html, body {
     font-family: georgia, sans-serif, "times new roman";
 }
 
+#sura-picker ul li {
+    background: #E5FFDA;
+    border: 1px solid #E0F5D6;
+    padding: 0.4em;
+    margin: 0.2em 0.2em;
+    border-radius: 4px;
+    
+    cursor: pointer;
+}
+
+#sura-picker ul li.active {
+    background: #D5EFCA;
+    border-color: #D0E5C6;
+}
+
+#sura-picker ul li:hover, #sura-picker ul li:active {
+    background: #F5FFEA;
+}
+
+#sura-picker .btn {
+    margin: 0.2em;
+    font-size: 90%;
+}
+
+#sura-picker .sura-index {
+    margin-right: 0.5em;
+    display: inline-block;
+    text-align: left;
+    color: #434444;
+}
+
+#sura-picker ul a:link, #sura-picker ul a:visited {
+    text-decoration: none;
+    display: inline-block;
+    width: 125px;
+    
+    color: #2024D0;
+}
+
+#sura-picker ul a:hover, #sura-picker ul a:active {
+    text-decoration: underline;
+}
+
+#sura-picker .aya-count {
+    display: inline-block;
+    float: right;
+    
+    margin-top: 0.2em;
+    padding: 0.1em 0.1em;
+    font-size: 75%;
+    color: #434444;
+    background: #D4E5D4;
+    border-radius: 3px;
+    width: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+#select-aya {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+#sura-picker .aya-count:hover, #sura-picker .aya-count:active {
+    color: #232222;
+    background: #E4F5E4;
+}
+
+#sura-picker .sura-name {
+    display: inline-block;
+    float: right;
+    margin-right: 0.5em;
+    
+    font-size: 140%;
+    line-height: 1.2;
+    
+    color: #232425;
+    
+    width: 85px;
+    text-align: right;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
     html, body {
         font-family: Helvetica, Arial, sans-serif;
-        font-size: 14px;
+        font-size: 15px;
     }
     
     p {
@@ -126,8 +283,19 @@ html, body {
         font-size: 14px;
     }
 
-
     .content {
         margin: 0.5em;
+    }
+    
+    .sura-picker-content.content {
+        margin: 0.5em 0.25em;
+    }
+    
+    #sura-picker .aya-count {
+        padding: 2px;
+        min-width: 22px;
+        width: auto;
+        font-size: 12px;
+        margin-top: 0;
     }
 }
