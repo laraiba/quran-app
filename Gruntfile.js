@@ -12,6 +12,13 @@ module.exports = function(grunt) {
                         dest: 'build/debug/index.html'
                     },
                     {
+                        src: ['*.html'], 
+                        dest: 'build/debug/',
+                        expand: true,
+                        cwd: 'src/'
+                    },
+
+                    {
                         src: ['**'], 
                         dest: 'build/debug/style/',
                         expand: true,
