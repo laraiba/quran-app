@@ -64,19 +64,30 @@ h3 {
     margin-top: 0em;
 }
 
+.container p, .container ul, .container ol, .container blockquote {
+    font-family: georgia, sans-serif, "times new roman";
+}
+
+.container ul li {
+    list-style: circle outside;
+}
+
 .navbar {
     background: #203319;
-    position: fixed;
     width: 100%;
     min-height: 3em;
-    top: 0;
-    left: 0;
     padding: 0 1em;
     color: #EFE;
     font-size: 70%;
     border-bottom: 1px solid rgba(40, 240, 20, 0.5);
     box-shadow: 1px 0 4px 2px rgba(40, 240, 20, 0.23);
     border-radius: 0;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    left: 0;
+    position: fixed;
 }
 
 .navbar > a:link, .navbar > a:visited {
