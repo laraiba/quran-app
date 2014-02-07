@@ -76,6 +76,7 @@ h3 {
     font-size: 70%;
     border-bottom: 1px solid rgba(40, 240, 20, 0.5);
     box-shadow: 1px 0 4px 2px rgba(40, 240, 20, 0.23);
+    border-radius: 0;
 }
 
 .navbar a:link, .navbar a:visited {

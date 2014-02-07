@@ -1,7 +1,7 @@
 $(function() {
     var Lrq = LaRaiba.Quran;
-    
-    var $topNavbar = $('<div id="top-navbar" class="navbar navbar-top"></div>');
+        
+    var $topNavbar = $('<div id="top-navbar" class="navbar navbar-inverse navbar-top"></div>');
     $('<a href="#" class="btn" id="main-menu-btn">=</a><a class="sura-navigator" href="#">2. Al Baqarah</a><a href="#" style="float: right">Juz 1</a>').appendTo($topNavbar);
     $topNavbar.appendTo('#wrap');
 
