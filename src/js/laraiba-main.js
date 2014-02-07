@@ -2,7 +2,10 @@ $(function() {
     var Lrq = LaRaiba.Quran;
         
     var $topNavbar = $('<div id="top-navbar" class="navbar navbar-inverse navbar-top"></div>');
-    $('<a href="#" class="btn" id="main-menu-btn">=</a><a class="sura-navigator" href="#">2. Al Baqarah</a><a href="#" style="float: right">Juz 1</a>').appendTo($topNavbar);
+    $('<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="main-menu-btn" title="Menu"><span class="glyphicon glyphicon-list"></span></a>' +
+    '<ul class="dropdown-menu" role="menu"><li><a href="#">Tentang LaRaiba</a></li><li><a href="#">Development</a></li></ul>' +
+    '<a class="sura-navigator" href="#"></a>' +
+    '<a href="#" title="Pencarian" id="btn-main-search" class="pull-right"><span class="glyphicon glyphicon-search"></span></a>').appendTo($topNavbar);
     $topNavbar.appendTo('#wrap');
 
     var $quranContent = $('<div id="quran-content" class="content"></div>');

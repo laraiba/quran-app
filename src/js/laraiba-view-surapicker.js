@@ -4,7 +4,7 @@
     Lrq.ViewManager.SuraPicker = {
         init: function() {
             var $this = this;
-            this.element = $('<div id="sura-picker" class="content sura-picker-content"><div><a id="sura-picker-back-btn" href="#" class="btn">&lt; Back</a></div><ul></ul><select id="select-aya"></select></div>');
+            this.element = $('<div id="sura-picker" class="content sura-picker-content"><div><a id="sura-picker-back-btn" href="#" class="btn btn-default">&lt; Back</a></div><ul></ul><select id="select-aya"></select></div>');
             
             var suraIndex = Lrq.Metadata.suras;
             var $ul = this.element.children('ul');

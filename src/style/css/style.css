@@ -68,10 +68,10 @@ h3 {
     background: #203319;
     position: fixed;
     width: 100%;
-    min-height: 2em;
+    min-height: 3em;
     top: 0;
     left: 0;
-    padding: 0.5em 1em;
+    padding: 0 1em;
     color: #EFE;
     font-size: 70%;
     border-bottom: 1px solid rgba(40, 240, 20, 0.5);
@@ -79,34 +79,17 @@ h3 {
     border-radius: 0;
 }
 
-.navbar a:link, .navbar a:visited {
+.navbar > a:link, .navbar > a:visited {
     color: #EFE;
     text-decoration: none;
     font-size: 16px;
     display: inline-block;
+    padding: 0.5em;
 }
 
-.navbar a:last-child {
-    margin-right: 2em;
-}
-
-.btn {
-    padding: 0.5em 1em;
-    display: inline-block;
-    border: 1px solid #DDD;
-    background: #EEE;
-    color: #222;
-    border-radius: 4px;
-    line-height: 1;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-.navbar .btn {
-    padding: 0.25em 0.5em;
-    border: 1px solid #575;
-    display: inline-block;
-    background-color: transparent;
-    line-height: 1;
+.navbar a:last-child, .navbar a:first-child {
+    padding-right: 0.75em;
+    padding-left: 0.75em;
 }
 
 .navbar #main-menu-btn {
