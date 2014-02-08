@@ -6,13 +6,24 @@
         var ayaViewModelTable = [];
         
         var ayaViewModelLoad = function() {
-            var aya = Lrq.Text.Uthmani[this.id];
             
-            this.arabicText = Lrq.ViewManager.Util.normalizeArabicText(aya.arabicText);
-            this.suraNumber = aya.suraNumber;
-            this.ayaNumber = aya.ayaNumber;
-            this.translationText = Lrq.Translations.indonesia[this.id].text;
-            this.render();
+            var ayaViewModel = this;
+            
+            Lrq.Data.loadAya(this.id, function(aya) {
+                ayaViewModel.arabicText = Lrq.ViewManager.Util.normalizeArabicText(aya.arabicText);
+                ayaViewModel.suraNumber = aya.suraNumber;
+                ayaViewModel.ayaNumber = aya.ayaNumber;
+
+                ayaViewModel.renderArabicText();
+            });
+
+            Lrq.Data.loadTranslation(this.id, function(ayaTranslation) {
+                ayaViewModel.translationText = ayaTranslation.text;
+
+                ayaViewModel.renderTranslationText();
+            });
+
+            ayaViewModel.render();
         };
         
         var renderViewModel = function() {
@@ -23,12 +34,32 @@
             
             var ayaId = this.id;
             
-            this.element = $('<li class="verse clearfix" data-aya-index="' + this.ayaNumber + '"><p class="arabic-text"></p><p class="translation"></p></li>');
+            this.element = $('<li class="verse clearfix"><p class="arabic-text"></p><p class="translation"><span class="aya-number"></span> <span class="translation-text"></span></p></li>');
             this.element.appendTo(this.renderTo);
             
-            this.element.children('.arabic-text').html(this.arabicText);
-            this.element.children('.translation').html(this.ayaNumber + '. ' + this.translationText);
+            this.renderArabicText();
+            this.renderTranslationText();
         };
+
+        var renderViewModelArabicText = function() { 
+            if (!this.element) {
+                return;
+            }
+            this.element.children('.arabic-text').html(this.arabicText);
+            
+            if (this.ayaNumber) {
+                this.element.find('.aya-number').html(this.ayaNumber + '.');
+            }
+            this.element.attr('data-aya-index', this.ayaNumber);
+        };
+        
+        var renderViewModelTranslationText = function() { 
+            if (!this.element) {
+                return;
+            }
+            this.element.find('.translation-text').html(this.translationText);
+        };
+
         
         var suraIndex = Lrq.Metadata.suras;
         var ayaId = '';
@@ -43,7 +74,9 @@
                     translationText: false,
                     load: ayaViewModelLoad,
                     renderTo: false,
-                    render: renderViewModel
+                    render: renderViewModel,
+                    renderArabicText: renderViewModelArabicText,
+                    renderTranslationText: renderViewModelTranslationText
                 };
             }
         }
