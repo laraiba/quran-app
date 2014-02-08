@@ -10,6 +10,25 @@
     var _translationLoading = false;
     var _translationDones = [];
 
+    if (window.localStorage) {
+        if (localStorage.getItem('LaRaiba.QuranText')) {
+            try {
+                Lrq.Text.Uthmani = JSON.parse(localStorage.getItem('LaRaiba.QuranText'));
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        
+        if (localStorage.getItem('LaRaiba.TranslationText')) {
+            try {
+                LaRaiba.Quran.Translations.indonesia = JSON.parse(localStorage.getItem('LaRaiba.TranslationText'));
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+    }
+     
     Lrq.Data.loadAya = function(ayaId, done) {
         if (!Lrq.Text.Uthmani || !Lrq.Text.Uthmani[ayaId]) {
             
@@ -22,6 +41,10 @@
                     dataType: "script",
                     cache: true,
                     success: function(data) {
+                        if (window.localStorage) {
+                            localStorage.setItem('LaRaiba.QuranText', JSON.stringify(Lrq.Text.Uthmani));
+                        }
+
                         for (var i = 0; i < _ayaDones.length; i++) {
                             _ayaDones[i].callback(Lrq.Text.Uthmani[_ayaDones[i].ayaId]);
                         }
@@ -47,6 +70,11 @@
                     dataType: "script",
                     cache: true,
                     success: function(data) {
+                        if (window.localStorage) {
+                            localStorage.setItem('LaRaiba.TranslationText', JSON.stringify(LaRaiba.Quran.Translations.indonesia));
+                        }
+
+
                         for (var i = 0; i < _translationDones.length; i++) {
                             _translationDones[i].callback(LaRaiba.Quran.Translations.indonesia[_translationDones[i].ayaId]);
                         }
