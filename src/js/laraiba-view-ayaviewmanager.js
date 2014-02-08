@@ -113,19 +113,26 @@
                     $(this).addClass('active');
                 });
                 $quran.appendTo($quranContent);
+
+                $quranContent.show(); 
+                $('#top-navbar .sura-navigator').html(suraData.index + '. ' + suraData.tname + ' ( ' + suraData.name + ' )');
                 
                 var ayaCursor = '';
+                var viewModels = [];
                 for (var j = 0; j < suraData.ayas; j++) {
                     ayaCursor = suraData.index + ':' + (j + 1);
                     var viewModel = Lrq.ViewManager.AyaViewManager.getViewModel(ayaCursor);
                     viewModel.renderTo = $quran;
-                    viewModel.load();
+                    viewModels.push(viewModel);
                 }
                 ayaCursor = null;
-                
-                $quranContent.fadeIn();
-                
-                $('#top-navbar .sura-navigator').html(suraData.index + '. ' + suraData.tname + ' ( ' + suraData.name + ' )');
+
+                setTimeout(function() {
+                    for (var i in viewModels) {
+                        viewModels[i].load();
+                    }
+                }, 10);
+                 
                 $('#sura-picker li').removeClass('active');
                 $('#sura-picker li[data-sura-index=' + this.activeSura + ']').addClass('active');
                 
