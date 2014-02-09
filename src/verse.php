@@ -27,7 +27,15 @@ $requestedSuraData = $quranData['suras'][$requestedAya['suraNumber']-1];
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <title>La Raiba - Al Quran</title>
+        <meta property="og:url" content="http://la-raiba.com/verse.php?i=<?php echo htmlspecialchars($requestedAya['_id']) ?>" />
+        <meta property="og:title" content="QS <?php echo htmlspecialchars($requestedSuraData['tname']) ?> ayat <?php echo htmlspecialchars($requestedAya['ayaNumber']) ?> (QS <?php echo htmlspecialchars($requestedAya['_id']) ?>)" />
+        <meta property="og:image" content="http://la-raiba.com" />
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:description" content="<?php echo htmlspecialchars($requestedAyaTranslation['text']) ?> (QS <?php echo htmlspecialchars($requestedAya['_id']) ?>)" />
+        <meta property="og:site_name" content="LaRaiba - Al Quran Digital" />
+        <meta property="og:see_also" content="http://la-raiba.com" />
+        <meta property="og:type" content="article" />
+        <title>La Raiba - Al Quran Digital</title>
         <link rel="stylesheet" href="style/css/reset.css">
         <link rel="stylesheet" href="style/css/bootstrap.min.css">
         <link rel="stylesheet" href="style/css/bootstrap-theme.min.css">
@@ -59,3 +67,4 @@ $requestedSuraData = $quranData['suras'][$requestedAya['suraNumber']-1];
         </script>
     </body>
 </html>
+
