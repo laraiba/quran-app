@@ -127,22 +127,24 @@
                 }
                 ayaCursor = null;
 
-                setTimeout(function() {
+                var loadViewModels = function() {
                     for (var i in viewModels) {
                         viewModels[i].load();
+                    };
+
+                    var $selectedAya = $quranContent.find('li[data-aya-index=' + ayaInfo.ayaIndex + ']');
+                    $selectedAya.addClass('active');
+                    
+                    if (!$selectedAya || ayaInfo.ayaIndex <= 2) {
+                        $('html, body').scrollTop(0);
+                    } else {
+                        $('html, body').scrollTop($selectedAya.offset().top - 160);
                     }
-                }, 10);
+                };
+                setTimeout(loadViewModels, 10);
                  
                 $('#sura-picker li').removeClass('active');
                 $('#sura-picker li[data-sura-index=' + this.activeSura + ']').addClass('active');
-                
-                var $selectedAya = $quranContent.find('li[data-aya-index=' + ayaInfo.ayaIndex + ']');
-                
-                if (!$selectedAya || ayaInfo.ayaIndex <= 2) {
-                    $('body').scrollTop(0);
-                } else {
-                    $('body').scrollTop($selectedAya.offset().top - 36);
-                }
             }
         };
     
