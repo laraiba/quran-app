@@ -11,7 +11,7 @@
             
             for (var i = 0; i < suraIndex.length; i++) {
                 $('<li data-sura-index="' + suraIndex[i].index + '"><span class="sura-index">' + suraIndex[i].index + '.</span>' +
-                    '<a data-sura-index="' + suraIndex[i].index + '" class="sura-ename" href="#">' + suraIndex[i].tname + '</a>' +
+                    '<a data-sura-index="' + suraIndex[i].index + '" class="sura-ename" href="#/verse/' + suraIndex[i].index + ':1">' + suraIndex[i].tname + '</a>' +
                     '<span class="aya-count" title="' + suraIndex[i].ayas + ' aya">' + suraIndex[i].ayas + '</span>' +
                     '<span class="sura-name">' + suraIndex[i].name + '</span>' +
                     '</li>').appendTo($ul);
@@ -24,20 +24,9 @@
                 $this.hide();
             });
             
-            this.element.on('click', 'li a.sura-ename', function(e) {
-                e.preventDefault();
-                
-                if (Lrq.ViewManager.AyaViewManager.showAya) {
-                    Lrq.ViewManager.AyaViewManager.showAya($(this).attr('data-sura-index') + ':1');
-                }
-            });
-            
             this.element.on('click', 'li', function(e) {
-                e.preventDefault();
-                
-                if (Lrq.ViewManager.AyaViewManager.showAya) {
-                    Lrq.ViewManager.AyaViewManager.showAya($(this).children('a.sura-ename').attr('data-sura-index') + ':1');
-                }
+                var url = $(this).find('a.sura-ename').attr('href');
+                window.location.href = url;
             });
             
             var $triggerSelectAya;
