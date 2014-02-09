@@ -42,7 +42,7 @@ $requestedSuraData = $quranData['suras'][$requestedAya['suraNumber']-1];
         <link rel="stylesheet" href="style/css/style.css">
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top" id="top-navbar"><a href="/#/verse/<?php echo htmlspecialchars($requestedAya['_id']) ?>"><span class="glyphicon glyphicon-chevron-left"></span> Kembali ke Al Quran</a></div>
+        <div class="navbar navbar-inverse navbar-fixed-top" id="top-navbar"><a href="/#/verse/<?php echo htmlspecialchars($requestedAya['_id']) ?>"><span class="glyphicon glyphicon-chevron-left"></span> Kembali ke <?php echo htmlspecialchars($requestedSuraData['tname'] . ' ( ' . $requestedSuraData['name'] . ' )') ?> ayat <?php echo htmlspecialchars($requestedAya['ayaNumber']) ?> (<?php echo htmlspecialchars($requestedAya['_id']) ?>)</a></div>
 
         <div class="content" id="quran-content">
             <ul class="quran">
@@ -51,7 +51,7 @@ $requestedSuraData = $quranData['suras'][$requestedAya['suraNumber']-1];
                     <p class="translation"><span class="aya-number"><?php echo htmlspecialchars($requestedAya['ayaNumber']) ?>.</span> <span class="translation-text"><?php echo htmlspecialchars($requestedAyaTranslation['text']) ?></span></p>
                 </li>
             </ul>
-            <a href="/#/verse/<?php echo htmlspecialchars($requestedAya['_id']) ?>"><?php echo htmlspecialchars($requestedSuraData['tname'] . ' ( ' . $requestedSuraData['name'] . ' )') ?> ayat <?php echo htmlspecialchars($requestedAya['ayaNumber']) ?> (<?php echo htmlspecialchars($requestedAya['_id']) ?>)</a>
+            <span><?php echo htmlspecialchars($requestedSuraData['tname'] . ' ( ' . $requestedSuraData['name'] . ' )') ?> ayat <?php echo htmlspecialchars($requestedAya['ayaNumber']) ?> (<?php echo htmlspecialchars($requestedAya['_id']) ?>)</span>
         </div>
         <script src="js/jquery.min.js"></script>
         <script>
