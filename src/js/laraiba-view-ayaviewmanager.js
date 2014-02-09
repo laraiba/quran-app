@@ -51,6 +51,7 @@
                 this.element.find('.aya-number').html(this.ayaNumber + '.');
             }
             this.element.attr('data-aya-index', this.ayaNumber);
+            this.element.attr('data-sura-index', this.suraNumber);
         };
         
         var renderViewModelTranslationText = function() { 
@@ -108,9 +109,10 @@
                 
                 var $quran = $('<ul class="quran"></ul>');
                 $quran.on('click', 'li', function(e) {
-                    e.preventDefault();
                     $quran.find('li.active').removeClass('active');
+                    $quran.find('.aya-toolbar').remove();
                     $(this).addClass('active');
+                    $(this).append('<div class="aya-toolbar"><br class="clear" /><a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=' + escape('http://la-raiba.com/verse.php?i=' + $(this).attr('data-sura-index') + ':' + $(this).attr('data-aya-index')) + '" data-type="icon_link" target="_blank">Share on facebook</a></div>');
                 });
                 $quran.appendTo($quranContent);
 
@@ -130,7 +132,7 @@
                 var loadViewModels = function() {
                     for (var i in viewModels) {
                         viewModels[i].load();
-                    };
+                    }
 
                     var $selectedAya = $quranContent.find('li[data-aya-index=' + ayaInfo.ayaIndex + ']');
                     $selectedAya.addClass('active');
