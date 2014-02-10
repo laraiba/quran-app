@@ -144,7 +144,7 @@
                 $quran.appendTo($quranContent);
 
                 $quranContent.show(); 
-                $('#top-navbar .sura-navigator').html('<span>' + suraData.index + '. ' + suraData.tname + ' ( ' + suraData.name + ' )' + '</span>');
+                $('#top-navbar .sura-navigator').html('<span>' + suraData.index + '. ' + suraData.tname + ' ( ' + suraData.name + ' )' + '</span><span class="caret"></span>');
                 
                 var ayaCursor = '';
                 var viewModels = [];

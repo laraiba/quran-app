@@ -109,9 +109,22 @@ h3 {
     background: #405339;
 }
 
-.navbar .sura-navigator span {
+.navbar a.sura-navigator {
+    position: relative;
+    padding-right: 2em;
+}
+
+.navbar .sura-navigator span:first-child {
     display: block;
     width: 110%;
+}
+
+.navbar .sura-navigator .caret {
+    position: absolute;
+    top: 45%;
+    left: 100%;
+    margin-left: -20px;
+    border-top-color: #EEFFEE;
 }
 
 .content {
