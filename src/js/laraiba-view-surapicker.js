@@ -22,6 +22,7 @@
             this.element.on('click', '#sura-picker-back-btn', function(e) {
                 e.preventDefault();
                 $this.hide();
+                history.go(-1);
             });
             
             this.element.on('click', 'li', function(e) {
