@@ -42,7 +42,11 @@
                     cache: true,
                     success: function(data) {
                         if (window.localStorage) {
-                            localStorage.setItem('LaRaiba.QuranText', JSON.stringify(Lrq.Text.Uthmani));
+                            try {
+                                localStorage.setItem('LaRaiba.QuranText', JSON.stringify(Lrq.Text.Uthmani));
+                            } catch (e) {
+                                console.log(e.message);
+                            }
                         }
 
                         for (var i = 0; i < _ayaDones.length; i++) {
@@ -71,7 +75,12 @@
                     cache: true,
                     success: function(data) {
                         if (window.localStorage) {
-                            localStorage.setItem('LaRaiba.TranslationText', JSON.stringify(LaRaiba.Quran.Translations.indonesia));
+                            try {
+                                localStorage.setItem('LaRaiba.TranslationText', JSON.stringify(LaRaiba.Quran.Translations.indonesia));
+                            }
+                            catch (e) {
+                                console.log(e.message);
+                            }
                         }
 
 
