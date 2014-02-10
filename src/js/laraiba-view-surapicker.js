@@ -13,7 +13,7 @@
                 $('<li data-sura-index="' + suraIndex[i].index + '"><span class="sura-index">' + suraIndex[i].index + '.</span>' +
                     '<a data-sura-index="' + suraIndex[i].index + '" class="sura-ename" href="#/verse/' + suraIndex[i].index + ':1">' + suraIndex[i].tname + '</a>' +
                     '<span class="aya-count" title="' + suraIndex[i].ayas + ' aya">' + suraIndex[i].ayas + '</span>' +
-                    '<span class="sura-name">' + suraIndex[i].name + '</span>' +
+                    '<span class="sura-name arabic-text">' + suraIndex[i].name + '</span>' +
                     '</li>').appendTo($ul);
             }
             

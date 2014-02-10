@@ -3,11 +3,6 @@
     src: url('../fonts/UthmanTN1 Ver10.otf');
 }
 
-@font-face {
-    font-family: UthmanB;
-    src: url('../fonts/UthmanTN1B Ver10.otf');
-}
-
 html, body {
     background-color: #F5FFEA;
     color: #333;
@@ -114,7 +109,7 @@ h3 {
     padding-right: 2em;
 }
 
-.navbar .sura-navigator span:first-child {
+.navbar .sura-navigator > span:first-child {
     display: block;
     width: 110%;
 }
@@ -178,14 +173,17 @@ h3 {
     text-shadow: 0 1px 0 rgba(10, 255, 20, 0.2), 1px 0 0 rgba(25, 10, 0, 0.1);
 }
 
+.arabic-text { 
+    font-family: Uthman, Arial, Helvetica;
+    direction: rtl;
+    text-align: right;
+}
+
 .quran .arabic-text {
     float: right;
     max-width: 48%;
-    text-align: right;
-    direction: rtl;
-    line-height: 2.3;
-    font-size: 150%;
-    font-family: UthmanB, Uthman, Arial, Helvetica;
+    line-height: 1.8;
+    font-size: 160%;
 }
 
 .quran .translation {
@@ -193,7 +191,7 @@ h3 {
     max-width: 48%;
     font-size: 100%;
     line-height: 1.4;
-    font-family: georgia, sans-serif, "times new roman";
+    font-family: Georgia, serif;
 }
 
 #sura-picker ul li {

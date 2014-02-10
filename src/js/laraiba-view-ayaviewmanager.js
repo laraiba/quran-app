@@ -98,7 +98,7 @@
                 $quranContent.html('');
                 
                 var $header = $('<div class="sura-header"><h2 class="sura-name">' + suraData.index + '. ' +
-                    suraData.tname + ' ( <span class="sura-tname">' + suraData.name + '</span> ) ' + '</h2>' +
+                    suraData.tname + ' ( <span class="sura-tname arabic-text">' + suraData.name + '</span> ) ' + '</h2>' +
                     '<h3 class="sura-ename">' + suraData.ename + '</h3>' +
                     '<p class="clearfix"><span class="sura-ayas">' + suraData.type + ', ' + suraData.ayas + ' aya</span>' + 
                     '<span class="sura-order">Revelation order : ' + suraData.order + '</span>' +
@@ -144,7 +144,7 @@
                 $quran.appendTo($quranContent);
 
                 $quranContent.show(); 
-                $('#top-navbar .sura-navigator').html('<span>' + suraData.index + '. ' + suraData.tname + ' ( ' + suraData.name + ' )' + '</span><span class="caret"></span>');
+                $('#top-navbar .sura-navigator').html('<span>' + suraData.index + '. ' + suraData.tname + ' ( <span class="sura-tname arabic-text">' + suraData.name + '</span> ) ' + '</span><span class="caret"></span>');
                 
                 var ayaCursor = '';
                 var viewModels = [];
