@@ -66,6 +66,7 @@
             var $this = this;
             
             $('#quran-content').hide();
+            $('.content').hide();
             
             if (!this.element) {
                 this.init();
