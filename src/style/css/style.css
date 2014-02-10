@@ -78,7 +78,7 @@ h3 {
     background: #203319;
     width: 100%;
     min-height: 3em;
-    padding: 0 1em;
+    padding: 0;
     color: #EFE;
     font-size: 70%;
     border-bottom: 1px solid rgba(40, 240, 20, 0.5);
@@ -101,16 +101,17 @@ h3 {
 }
 
 .navbar a:last-child, .navbar a:first-child {
-    padding-right: 0.65em;
-    padding-left: 0.75em;
+    padding-right: 1.35em;
+    padding-left: 1.35em;
 }
 
 .navbar a:not(:first-child) {
     background: #405339;
 }
 
-.navbar #main-menu-btn {
-    margin-right: 1em;
+.navbar .sura-navigator span {
+    display: block;
+    width: 110%;
 }
 
 .content {
