@@ -60,7 +60,7 @@ h3 {
 }
 
 .container p, .container ul, .container ol, .container blockquote {
-    font-family: georgia, sans-serif, "times new roman";
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 }
 
 .container ul li {
@@ -191,7 +191,7 @@ h3 {
     max-width: 48%;
     font-size: 100%;
     line-height: 1.4;
-    font-family: Georgia, serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 }
 
 #sura-picker ul li {
