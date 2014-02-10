@@ -13,6 +13,12 @@ $(function() {
     var routed = false;
     
     var routes = {
+        '/': {
+            on: function() {
+                Lrq.ViewManager.AyaViewManager.showAya('1:1');
+                routed = true;
+            }
+        },
         '/verse': {
             '/(.*)': {
                 on: function(id) {
@@ -43,6 +49,6 @@ $(function() {
     router.init();
     
     if (!routed) {
-        Lrq.ViewManager.AyaViewManager.showAya('1:1');
+        window.location.href = '#/';
     }
 });
