@@ -101,12 +101,16 @@ h3 {
 }
 
 .navbar a:last-child, .navbar a:first-child {
-    padding-right: 0.75em;
+    padding-right: 0.65em;
     padding-left: 0.75em;
 }
 
+.navbar a:not(:first-child) {
+    background: #405339;
+}
+
 .navbar #main-menu-btn {
-    margin-right: 2em;
+    margin-right: 1em;
 }
 
 .content {
