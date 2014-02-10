@@ -46,6 +46,7 @@
             }
 
             this.element.fadeIn();
+            $(window).scrollTop(0);
         },
         
         hide: function() {
