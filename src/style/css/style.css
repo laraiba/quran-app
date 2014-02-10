@@ -69,7 +69,9 @@ h3 {
 }
 
 .container ul li {
-    list-style: circle outside;
+    list-style: disc outside;
+    margin-left: 1.5em;
+    padding-bottom: 0.75em;
 }
 
 .navbar {

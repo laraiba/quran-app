@@ -2,7 +2,7 @@ $(function() {
     var Lrq = LaRaiba.Quran;
         
     var $topNavbar = $('<div id="top-navbar" class="navbar navbar-inverse navbar-fixed-top"></div>');
-    $('<a href="about.html" id="main-menu-btn" title="Menu"><span class="glyphicon glyphicon-list"></span></a>' +
+    $('<a href="#/about" id="main-menu-btn" title="Menu"><span class="glyphicon glyphicon-list"></span></a>' +
     '<a class="sura-navigator" href="#/sura-picker"></a>' +
     '').appendTo($topNavbar);
     $topNavbar.appendTo('#wrap');
@@ -26,7 +26,14 @@ $(function() {
                 LaRaiba.Quran.ViewManager.SuraPicker.show();
                 routed = true;
             }
+        },
+        '/about': {
+            on: function() {
+                LaRaiba.Quran.ViewManager.AboutPage.show();
+                routed = true;
+            }
         }
+
     };
 
     var router = Router(routes);
