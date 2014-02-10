@@ -111,8 +111,35 @@
                 $quran.on('click', 'li', function(e) {
                     $quran.find('li.active').removeClass('active');
                     $quran.find('.aya-toolbar').remove();
+                    $quran.find('.aya-select-info').remove();
                     $(this).addClass('active');
-                    $(this).append('<div class="aya-toolbar"><br class="clear" /><a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=' + escape('http://la-raiba.com/verse.php?i=' + $(this).attr('data-sura-index') + ':' + $(this).attr('data-aya-index')) + '" data-type="icon_link" target="_blank">Share on facebook</a></div>');
+                    $(this).append('<div class="aya-toolbar"><br class="clear" /><a class="select-aya" href="#">Select</a> | <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=' + escape('http://la-raiba.com/verse.php?i=' + $(this).attr('data-sura-index') + ':' + $(this).attr('data-aya-index')) + '" data-type="icon_link" target="_blank">Share on facebook</a></div>');
+                });
+
+                $quran.on('click', '.select-aya', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    $quran.find('.aya-select-info').remove();
+                    var $verse = $(this).parentsUntil('.verse').parent();
+
+                    var suraIndex = $verse.attr('data-sura-index');
+                    var ayaIndex = $verse.attr('data-aya-index');
+                    var $translationText = $(this).parentsUntil('.verse').parent().find('.translation-text');
+
+                    
+                    $translationText.prepend('<span class="aya-select-info">"</span>');
+                    $translationText.append('<span class="aya-select-info">"</span>');
+                    $translationText.append(' <span class="aya-select-info">(QS ' + suraIndex + ':' + ayaIndex + ')</span><br class="aya-select-info"/><br class="aya-select-info"/><a class="aya-select-info" href="http://la-raiba.com/#/verse/' + suraIndex + ':' + ayaIndex + '">http://la-raiba.com/#/verse/' + suraIndex + ':' + ayaIndex + '</a>');
+
+                    var range = document.createRange();
+                    var node = $translationText.get(0);
+                    range.setStart(node.firstChild, 0);
+                    range.setEnd(node.lastChild.firstChild, node.lastChild.firstChild.length);
+
+                    var selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
                 });
                 $quran.appendTo($quranContent);
 
