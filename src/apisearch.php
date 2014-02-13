@@ -1,6 +1,6 @@
 <?php
 
-$keyword = (string)$_GET['keyword'];
+$keyword = trim((string)$_GET['keyword']);
 
 $searchResults = array();
 

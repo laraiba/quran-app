@@ -47,7 +47,7 @@
             this.show();
             var $this = this;
 
-            $this.element.find('#input-search-keyword').val(keyword);
+            $this.element.find('#input-search-keyword').val(unescape(keyword));
 
             var $searchResult = $('<div class="search-result-list-group list-group"></div>');
             
