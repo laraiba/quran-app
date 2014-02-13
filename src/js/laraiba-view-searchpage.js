@@ -22,6 +22,7 @@
                 if (e.keyCode == '13') {
                     e.preventDefault();
                     var keyword = $this.element.find('#input-search-keyword').val();
+                    $(this).blur();
                     window.location.href = '#/search/' + keyword;
                 }
             }); 
@@ -68,7 +69,7 @@
                         for (var i in searchResults) {
                              var aya  = LaRaiba.Quran.Translations.indonesia[i];
                              var suraData  = Lrq.Metadata.suras[aya.suraNumber-1];
-                             var text = aya.text
+                             var text = aya.text;
                              $searchResult.append('<a class="list-group-item" href="#/verse/' +  aya._id + '"><h4 class="list-group-item-heading">' + suraData.tname + ' ( QS '+ aya._id + ' )'  + '</h4><p class="list-group-item-text">' + text  + '</p></a>');
                         }
                     },
