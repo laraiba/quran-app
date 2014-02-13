@@ -95,18 +95,26 @@ h3 {
     padding: 0.5em;
 }
 
+.navbar > a:hover, .navbar > a:active {
+    background: ;
+}
+
 .navbar a:last-child, .navbar a:first-child {
     padding-right: 1.35em;
     padding-left: 1.35em;
 }
 
-.navbar a:not(:first-child) {
+.navbar a:not(:first-child):not(:last-child) {
     background: #405339;
 }
 
 .navbar a.sura-navigator {
     position: relative;
     padding-right: 2em;
+}
+
+.navbar a.search-nav {
+    float: right;
 }
 
 .navbar .sura-navigator > span:first-child {
@@ -276,6 +284,10 @@ h3 {
     width: 85px;
     text-align: right;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.search-result-list-group {
+    margin-top: 1em;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
