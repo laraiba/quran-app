@@ -51,8 +51,34 @@
             var $searchResult = $('<div class="search-result-list-group list-group"></div>');
             
             if (LaRaiba.Quran.Translations.indonesia[keyword]) {
-                var text = LaRaiba.Quran.Translations.indonesia[keyword].text;
-                $searchResult.append('<a class="list-group-item" href="#/verse/' +  LaRaiba.Quran.Translations.indonesia[keyword]._id + '"><h4 class="list-group-item-heading">' + keyword + '</h4><p class="list-group-item-text">' + text  + '</p></a>');
+                var aya  = LaRaiba.Quran.Translations.indonesia[keyword];
+                var suraData  = Lrq.Metadata.suras[aya.suraNumber-1];
+                var text = aya.text;
+                $searchResult.append('<a class="list-group-item" href="#/verse/' +  aya._id + '"><h4 class="list-group-item-heading">' + suraData.tname + ' ( QS '+ aya._id + ' )'  + '</h4><p class="list-group-item-text">' + text  + '</p></a>');
+            } else {
+                $.ajax({
+                    url: 'apisearch.php',
+                    data: {"keyword": keyword},
+                    method: 'GET',
+                    beforeSend: function() {
+                        $searchResult.append('<span class="loading">Sedang mencari...</span>');
+                    },
+                    success: function(data) {
+                        var searchResults = JSON.parse(data);
+                        for (var i in searchResults) {
+                             var aya  = LaRaiba.Quran.Translations.indonesia[i];
+                             var suraData  = Lrq.Metadata.suras[aya.suraNumber-1];
+                             var text = aya.text
+                             $searchResult.append('<a class="list-group-item" href="#/verse/' +  aya._id + '"><h4 class="list-group-item-heading">' + suraData.tname + ' ( QS '+ aya._id + ' )'  + '</h4><p class="list-group-item-text">' + text  + '</p></a>');
+                        }
+                    },
+                    error: function(error) {
+                        alert('Ada masalah dengan koneksi, silahkan coba lagi setelah koneksi tersambung.');
+                    },
+                    complete: function() {
+                        $searchResult.find('.loading').remove();
+                    }
+                });
             }
             
             $this.element.find('.search-result-row').remove();
