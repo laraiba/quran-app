@@ -51,8 +51,8 @@
             var $searchResult = $('<div class="search-result-list-group list-group"></div>');
             
             if (LaRaiba.Quran.Translations.indonesia[keyword]) {
-                var text = LaRaiba.Quran.Translations.indonesia[keyword]['text'];
-                $searchResult.append('<a class="list-group-item" href="#/verse/' +  LaRaiba.Quran.Translations.indonesia[keyword]['_id'] + '"><h4 class="list-group-item-heading">' + keyword + '</h4><p class="list-group-item-text">' + text  + '</p></a>');
+                var text = LaRaiba.Quran.Translations.indonesia[keyword].text;
+                $searchResult.append('<a class="list-group-item" href="#/verse/' +  LaRaiba.Quran.Translations.indonesia[keyword]._id + '"><h4 class="list-group-item-heading">' + keyword + '</h4><p class="list-group-item-text">' + text  + '</p></a>');
             }
             
             $this.element.find('.search-result-row').remove();
