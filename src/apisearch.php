@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . '/zendsearch/vendor/autoload.php';
+
 $keyword = trim((string)$_GET['keyword']);
 
 $searchResults = array();
@@ -9,27 +11,28 @@ if (empty($keyword)) {
     return;
 }
 
-$quranDataJson = file_get_contents(__DIR__ . '/data/quran-data.json');
-$quranData     = json_decode($quranDataJson, true);
+//$quranDataJson = file_get_contents(__DIR__ . '/data/quran-data.json');
+//$quranData     = json_decode($quranDataJson, true);
 
-$quranTextJson = file_get_contents(__DIR__ . '/data/quran-uthmani.json');
-$quranText     = json_decode($quranTextJson, true);
+//$quranTextJson = file_get_contents(__DIR__ . '/data/quran-uthmani.json');
+//$quranText     = json_decode($quranTextJson, true);
 
 $quranTranslationJson = file_get_contents(__DIR__ . '/data/translation-id.json');
 $quranTranslation     = json_decode($quranTranslationJson, true);
 
-$lowerCaseKeyword = strtolower($keyword);
+//$lowerCaseKeyword = strtolower($keyword);
 
-foreach ($quranTranslation as $row) {
-    $text = strtolower($row['text']);
+$index = ZendSearch\Lucene\Lucene::open(__DIR__ . '/data/index');
 
-    if (strpos($text, $lowerCaseKeyword) !== false) {
-        $searchResults[$row['_id']] = array(
-            'matches' => array(
-                $keyword => $keyword,
-            ),
-        );
-    }
+$hits = $index->find($keyword);
+
+foreach ($hits as $hit) {
+    $doc = $hit->getDocument();
+    $searchResults[$doc->getFieldValue('id')] = array(
+        'matches' => array(
+            $keyword => $keyword,
+        ),
+    );
 }
 
 echo json_encode($searchResults);
