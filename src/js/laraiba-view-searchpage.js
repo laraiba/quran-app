@@ -42,6 +42,9 @@
 
             this.element.show();
             $(window).scrollTop(0);
+            $('html, body').scrollTop(0);
+
+            $this.element.find('#input-search-keyword').focus();
         },
         search: function(keyword) {
             this.show();
