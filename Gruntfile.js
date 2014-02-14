@@ -41,7 +41,12 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'src/data'
                     },
-
+                    {
+                        src: ['**'], 
+                        dest: 'build/debug/zendsearch/',
+                        expand: true,
+                        cwd: 'src/zendsearch'
+                    }
                 ]
             }
         },
