@@ -15,7 +15,7 @@
                     _ayaLoading = true;
                     
                     $.ajax({
-                        url: 'js/quran-uthmani.js',
+                        url: 'js/quran/quran-uthmani.js',
                         type: "GET",
                         dataType: "script",
                         cache: true,
@@ -42,7 +42,7 @@
                     _translationLoading = true;
 
                     $.ajax({
-                        url: 'js/quran-translation-id.js',
+                        url: 'js/quran/quran-translation-id.js',
                         type: "GET",
                         dataType: "script",
                         cache: true,
