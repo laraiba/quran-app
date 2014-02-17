@@ -5,7 +5,7 @@ module.exports = function(grunt) {
             build: ['build']
         },
         copy: {
-            main: {
+            debug: {
                 files: [
                     {
                         src: ['src/index.dev.html'], 
@@ -31,27 +31,94 @@ module.exports = function(grunt) {
                     },
                     {
                         src: ['**'], 
-                        dest: 'build/debug/js/',
-                        expand: true,
-                        cwd: 'vendor/js'
-                    },
-                    {
-                        src: ['**'], 
                         dest: 'build/debug/data/',
                         expand: true,
                         cwd: 'src/data'
                     },
+                    /*
                     {
                         src: ['**'], 
                         dest: 'build/debug/zendsearch/',
                         expand: true,
                         cwd: 'src/zendsearch'
                     }
+                    */
+                ]
+            },
+            dist: {
+                files: [
+                    {
+                        src: ['src/index.html'], 
+                        dest: 'build/dist/index.html'
+                    },
+                    {
+                        src: ['*.html', '*.php'], 
+                        dest: 'build/dist/',
+                        expand: true,
+                        cwd: 'src/'
+                    },
+                    {
+                        src: ['**'], 
+                        dest: 'build/dist/style/',
+                        expand: true,
+                        cwd: 'src/style'
+                    },
+                    {
+                        src: ['**'], 
+                        dest: 'build/dist/js/',
+                        expand: true,
+                        cwd: 'src/js'
+                    },
+                    {
+                        src: ['**'], 
+                        dest: 'build/dist/data/',
+                        expand: true,
+                        cwd: 'src/data'
+                    },
+                    /*
+                    {
+                        src: ['**'], 
+                        dest: 'build/debug/zendsearch/',
+                        expand: true,
+                        cwd: 'src/zendsearch'
+                    }
+                    */
                 ]
             }
+
         },
         jshint: {
             all: ['Gruntfile.js', 'src/**/laraiba*.js', 'tests/**/*.js']
+        },
+        concat: {
+            options: {
+                separator: ";\n\n",
+            },
+            dist: {
+                src: [
+                        'src/js/core.js', 'src/js/data/metadata.js', 'src/js/data/quran.metadata.js', 'src/js/data/data.js',
+                        'src/js/data/data.cache.js', 'src/js/view/viewmanager.js', 'src/js/view/util.js', 'src/js/view/ayaviewmanager.js',
+                        'src/js/view/page.qurancontent.js', 'src/js/view/page.surapicker.js', 'src/js/view/page.search.js',
+                        'src/js/view/page.about.js', 'src/js/view/widget.topnavbar.js', 'src/js/router.js', 'src/js/main.js'
+                     ],
+                dest: 'build/dist/js/la-raiba.js',
+            },
+            "dist-all": {
+                src: ['build/dist/js/vendor/jquery.min.js', 'build/dist/js/vendor/director.min.js', 'build/dist/js/la-raiba.min.js'],
+                dest: 'build/dist/js/la-raiba.all.js',
+            },
+        },
+        uglify: {
+            laraiba: {
+                files: {
+                    'build/dist/js/la-raiba.min.js': [
+                        'src/js/core.js', 'src/js/data/metadata.js', 'src/js/data/quran.metadata.js', 'src/js/data/data.js',
+                        'src/js/data/data.cache.js', 'src/js/view/viewmanager.js', 'src/js/view/util.js', 'src/js/view/ayaviewmanager.js',
+                        'src/js/view/page.qurancontent.js', 'src/js/view/page.surapicker.js', 'src/js/view/page.search.js',
+                        'src/js/view/page.about.js', 'src/js/view/widget.topnavbar.js', 'src/js/router.js', 'src/js/main.js'
+                     ],
+                }
+            }
         }
     });
 
@@ -60,5 +127,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify'); 
-    grunt.registerTask('default', ['clean', 'copy', 'jshint']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy', 'uglify', 'concat']);
 };
