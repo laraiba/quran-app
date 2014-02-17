@@ -1,7 +1,6 @@
-(function(Lr, $) {
-    var Lrq = Lr.Quran;
+(function(Lrq, $) {
     
-    Lrq.ViewManager.AboutPage = {
+    Lrq.ViewManager.page.about = {
         init: function() {
             var $this = this;
             this.element = $('<div id="about-page" class="container content about-page-content"><div class="row"><div class="col-md-6"><a id="about-page-back-btn" href="#" class="btn btn-default">&lt; Back</a>' +
@@ -42,4 +41,4 @@
         }
     };
 
-})(LaRaiba, jQuery);
+})(LaRaiba.Quran, jQuery);

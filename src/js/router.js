@@ -27,7 +27,7 @@
                 },
                 '/about': {
                     on: function() {
-                        LaRaiba.Quran.ViewManager.AboutPage.show();
+                        LaRaiba.Quran.ViewManager.page.about.show();
                         routed = true;
                     }
                 },
