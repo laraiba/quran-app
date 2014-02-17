@@ -1,5 +1,8 @@
 (function(Lrq, $) {
     
-    Lrq.ViewManager = Lrq.ViewManager || {};
+    Lrq.ViewManager = {
+        widget: {},
+        page: {}
+    };
     
 })(LaRaiba.Quran, jQuery);
