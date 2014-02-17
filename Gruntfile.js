@@ -107,6 +107,10 @@ module.exports = function(grunt) {
                 src: ['build/dist/js/vendor/jquery.min.js', 'build/dist/js/vendor/director.min.js', 'build/dist/js/la-raiba.min.js'],
                 dest: 'build/dist/js/la-raiba.all.js',
             },
+            "dist-css": {
+                src: ['build/dist/style/css/reset.css', 'build/dist/style/css/bootstrap.min.css', 'build/dist/style/css/bootstrap-theme.min.css', 'build/dist/style/css/style.css'],
+                dest: 'build/dist/style/css/style.all.css',
+            },
         },
         uglify: {
             laraiba: {
