@@ -34,12 +34,12 @@
                 '/search': {
                     '/(.*)': {
                         on: function(keyword) {
-                            LaRaiba.Quran.ViewManager.SearchPage.search(keyword);
+                            LaRaiba.Quran.ViewManager.page.search.search(keyword);
                             routed = true;
                         }
                     },
                     on: function() {
-                        LaRaiba.Quran.ViewManager.SearchPage.show();
+                        LaRaiba.Quran.ViewManager.page.search.show();
                         routed = true;
                     }
                 }

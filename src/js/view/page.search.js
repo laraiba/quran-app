@@ -1,7 +1,6 @@
-(function(Lr, $) {
-    var Lrq = Lr.Quran;
+(function(Lrq, $) {
     
-    Lrq.ViewManager.SearchPage = {
+    Lrq.ViewManager.page.search = {
         init: function() {
             var $this = this;
             this.element = $('<div id="search-page" class="container content search-page-content"><div class="row"><div class="col-md-6">' +
@@ -98,4 +97,4 @@
         }
     };
 
-})(LaRaiba, jQuery);
+})(LaRaiba.Quran, jQuery);
