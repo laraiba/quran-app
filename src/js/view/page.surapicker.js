@@ -1,7 +1,6 @@
-(function(Lr, $) {
-    var Lrq = Lr.Quran;
+(function(Lrq, $) {
     
-    Lrq.ViewManager.SuraPicker = {
+    Lrq.ViewManager.page.suraPicker = {
         init: function() {
             var $this = this;
             this.element = $('<div id="sura-picker" class="content sura-picker-content"><div><a id="sura-picker-back-btn" href="#" class="btn btn-default">&lt; Back</a></div><ul></ul><select id="select-aya"></select></div>');
@@ -91,4 +90,4 @@
         }
     };
 
-})(LaRaiba, jQuery);
+})(LaRaiba.Quran, jQuery);

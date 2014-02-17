@@ -21,7 +21,7 @@
                 },
                 '/sura-picker': {
                     on: function() {
-                        LaRaiba.Quran.ViewManager.SuraPicker.show();
+                        LaRaiba.Quran.ViewManager.page.suraPicker.show();
                         routed = true;
                     }
                 },
