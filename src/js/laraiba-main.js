@@ -1,8 +1,8 @@
 $(function() {
     var Lrq = LaRaiba.Quran;
     
-    Lrq.cache.loadQuranText();
-    Lrq.cache.loadTranslationText();
+    Lrq.Data.cache.loadQuranText();
+    Lrq.Data.cache.loadTranslationText();
 
     var $topNavbar = $('<div id="top-navbar" class="navbar navbar-inverse navbar-fixed-top"></div>');
     $('<a href="#/about" id="main-menu-btn" title="Menu"><span class="glyphicon glyphicon-list"></span></a>' +
