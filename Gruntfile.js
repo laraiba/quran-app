@@ -108,6 +108,9 @@ module.exports = function(grunt) {
                 dest: 'build/dist/js/la-raiba.all.js',
             },
             "dist-css": {
+                options: {
+                    separator: "\n\n",
+                },
                 src: ['build/dist/style/css/reset.css', 'build/dist/style/css/bootstrap.min.css', 'build/dist/style/css/bootstrap-theme.min.css', 'build/dist/style/css/style.css'],
                 dest: 'build/dist/style/css/style.all.css',
             },
