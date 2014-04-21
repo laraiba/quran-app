@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/zendsearch/vendor/autoload.php';
+include_once __DIR__ . '/search/vendor/autoload.php';
 
 $keyword = trim((string)$_GET['keyword']);
 
@@ -24,7 +24,26 @@ $quranTranslation     = json_decode($quranTranslationJson, true);
 
 $index = ZendSearch\Lucene\Lucene::open(__DIR__ . '/data/index');
 
-$hits = $index->find($keyword);
+$stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
+$stemmer = $stemmerFactory->createStemmer();
+
+$stems = $stemmer->stem($keyword);
+$stemsArray = explode(' ', $stems);
+foreach ($stemsArray as $i => $stem) {
+    $stemsArray[$i] = $stem . '~';
+}
+
+$stems = implode(' ', $stemsArray);
+
+$keywordArray = explode(' ', $keyword);
+foreach ($keywordArray as $i => $v) {
+    $keywordArray[$i] = $v . '~';
+}
+$keywordTilde = implode(' ', $keywordArray);
+
+$searchQuery = "text:($keywordTilde)^1 stems:($stems)^0.3";
+
+$hits = $index->find($searchQuery);
 
 foreach ($hits as $hit) {
     $doc = $hit->getDocument();
