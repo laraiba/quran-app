@@ -28,12 +28,6 @@ $stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
 $stemmer = $stemmerFactory->createStemmer();
 
 $stems = $stemmer->stem($keyword);
-$stemsArray = explode(' ', $stems);
-foreach ($stemsArray as $i => $stem) {
-    $stemsArray[$i] = $stem . '~';
-}
-
-$stems = implode(' ', $stemsArray);
 
 $searchQuery = "text:($keyword)^1 stems:($stems)^0.3";
 
