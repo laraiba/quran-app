@@ -290,6 +290,13 @@ h3 {
     margin-top: 1em;
 }
 
+.search-credit {
+    margin-top: 1em;
+    color: #777;
+    text-align: center;
+    font-size: 90%;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
     html, body {
         font-family: Helvetica, Arial, sans-serif;

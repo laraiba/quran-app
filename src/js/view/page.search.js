@@ -10,6 +10,9 @@
                             '<button id="btn-search" class="btn btn-default" type="button" title="Cari"><span class="glyphicon glyphicon-search"></span></button>' +
                         '</span>' +
                 '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row search-credit"><div class="col-md-6"><small>Teknologi pencarian menggunakan <a target="_blank" href="https://github.com/sastrawi/sastrawi">Sastrawi</a> dan <a target="_blank" href="https://lucene.apache.org/">Apache Lucene</a></small></div></div>' +
             '</div>');
 
             this.element.on('click', '#btn-search', function(e) {
@@ -85,11 +88,14 @@
             }
             
             $this.element.find('.search-result-row').remove();
+            $this.element.find('.search-credit').remove();
             var $row = $('<div class="row search-result-row"></div>')
                 .append('<div class="col-md-6"></div>')
                 .appendTo($this.element);
             $row.find('.col-md-6').append($searchResult);
-
+            var $row = $('<div class="row search-credit"></div>')
+                .append('<div class="col-md-6"><small>Teknologi pencarian menggunakan <a target="_blank" href="https://github.com/sastrawi/sastrawi">Sastrawi</a> dan <a target="_blank" href="https://lucene.apache.org/">Apache Lucene</a></small></div>')
+                .appendTo($this.element);
         },
         hide: function() {
             this.element.hide();
