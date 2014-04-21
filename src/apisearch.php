@@ -35,13 +35,7 @@ foreach ($stemsArray as $i => $stem) {
 
 $stems = implode(' ', $stemsArray);
 
-$keywordArray = explode(' ', $keyword);
-foreach ($keywordArray as $i => $v) {
-    $keywordArray[$i] = $v . '~';
-}
-$keywordTilde = implode(' ', $keywordArray);
-
-$searchQuery = "text:($keywordTilde)^1 stems:($stems)^0.3";
+$searchQuery = "text:($keyword)^1 stems:($stems)^0.3";
 
 $hits = $index->find($searchQuery);
 

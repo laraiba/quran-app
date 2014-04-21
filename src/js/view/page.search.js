@@ -5,7 +5,7 @@
             var $this = this;
             this.element = $('<div id="search-page" class="container content search-page-content"><div class="row"><div class="col-md-6">' +
                 '<div class="input-group">' +
-                    '<input id="input-search-keyword" type="text" class="form-control" placeholder="Cari sesuatu di Al Quran" />' +
+                    '<input id="input-search-keyword" type="text" class="form-control" placeholder="Cari sesuatu seperti: air, kebun" />' +
                         '<span class="input-group-btn">' +
                             '<button id="btn-search" class="btn btn-default" type="button" title="Cari"><span class="glyphicon glyphicon-search"></span></button>' +
                         '</span>' +
