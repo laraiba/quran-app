@@ -35,14 +35,14 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'src/data'
                     },
-                    /*
+                    
                     {
                         src: ['**'], 
-                        dest: 'build/debug/zendsearch/',
+                        dest: 'build/debug/search/',
                         expand: true,
-                        cwd: 'src/zendsearch'
+                        cwd: 'src/search'
                     }
-                    */
+                    
                 ]
             },
             dist: {
@@ -75,14 +75,14 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'src/data'
                     },
-                    /*
+                    
                     {
                         src: ['**'], 
-                        dest: 'build/debug/zendsearch/',
+                        dest: 'build/dist/search/',
                         expand: true,
-                        cwd: 'src/zendsearch'
+                        cwd: 'src/search'
                     }
-                    */
+                    
                 ]
             }
 
