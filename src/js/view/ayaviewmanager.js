@@ -113,7 +113,7 @@
                     $quran.find('.aya-toolbar').remove();
                     $quran.find('.aya-select-info').remove();
                     $(this).addClass('active');
-                    $(this).append('<div class="aya-toolbar"><br class="clear" /><a class="select-aya" href="#">Select</a> | <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=' + escape('http://la-raiba.com/verse.php?i=' + $(this).attr('data-sura-index') + ':' + $(this).attr('data-aya-index')) + '" data-type="icon_link" target="_blank">Share on facebook</a></div>');
+                    $(this).append('<div class="aya-toolbar"><br class="clear" /><a class="select-aya" href="#">Select</a></div>');
                 });
 
                 $quran.on('click', '.select-aya', function(e) {
